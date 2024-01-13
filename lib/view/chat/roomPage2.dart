@@ -69,123 +69,124 @@ class PrivateMessageRoom extends StatelessWidget {
               init: PrivateMessagesRoomController(),
               builder: (controller) {
                 return FutureBuilder(
-                    future: controller.getData(),
-                    builder: (context, snapshot) {
-                      return StreamBuilder(
-                        stream: controller.streamController.stream,
-                        builder: (context, snapshot) {
-                          if (snapshot.data == null) {
-                            return Center(child: CircularProgressIndicator());
-                          } else {
-                            return ListView.builder(
-                              reverse: true,
-                              itemBuilder: (context, index) {
-                                final message = snapshot.data["data"][
-                                    (snapshot.data["data"].length ?? 0) -
-                                        1 -
-                                        index];
-                                final isSentByMe =
-                                    message["senderUserRoom"] == userName;
-                                return Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 10.h, horizontal: 16.w),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: isSentByMe
-                                        ? CrossAxisAlignment.end
-                                        : CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                          left: isSentByMe ? 15.w : 0.w,
-                                          right: isSentByMe ? 0.w : 15.w,
-                                        ),
-                                        child: Container(
-                                          constraints: BoxConstraints(
-                                            maxWidth: Get.width * 0.75,
-                                          ),
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal: 24.w,
-                                            vertical: 6.h,
-                                          ),
-                                          decoration: BoxDecoration(
-                                              color: isSentByMe
-                                                  ? Colors.white
-                                                  : Color(0xffecd2ab),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Colors.grey
-                                                      .withOpacity(0.5),
-                                                  spreadRadius: 1,
-                                                  blurRadius: 6,
-                                                  offset: Offset(0,
-                                                      3), // changes position of shadow
-                                                ),
-                                              ],
-                                              borderRadius: isSentByMe
-                                                  ? BorderRadius.only(
-                                                      topLeft:
-                                                          Radius.circular(13.r),
-                                                      bottomLeft:
-                                                          Radius.circular(13.r),
-                                                      bottomRight:
-                                                          Radius.circular(13.r),
-                                                    )
-                                                  : BorderRadius.only(
-                                                      bottomRight:
-                                                          Radius.circular(13.r),
-                                                      topRight:
-                                                          Radius.circular(13.r),
-                                                      bottomLeft:
-                                                          Radius.circular(13.r),
-                                                    )),
-                                          child: message["audio"] == "1"
-                                              ? GestureDetector(
-                                                  onTap: () {
-                                                    controller.playRecording(
-                                                        message["message"]
-                                                            .toString());
-                                                  },
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(Icons
-                                                          .play_arrow_rounded),
-                                                      SizedBox(
-                                                        width: 10.w,
-                                                      ),
-                                                      Container(
-                                                        // width: 00,
-                                                        constraints:
-                                                            BoxConstraints(
-                                                          maxWidth:
-                                                              Get.width * 0.50,
-                                                        ),
-                                                        height: 2,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                )
-                                              : Text(
-                                                  message["message"].toString(),
-                                                  textAlign: !isSentByMe
-                                                      ? TextAlign.right
-                                                      : TextAlign.left,
-                                                  style: TextStyle(
-                                                      color: Colors.black),
-                                                ),
-                                        ),
+                  future: controller.getData(),
+                  builder: (context, snapshot) {
+                    return StreamBuilder(
+                      stream: controller.streamController.stream,
+                      builder: (context, snapshot) {
+                        if (snapshot.data == null) {
+                          return Center(child: CircularProgressIndicator());
+                        } else {
+                          return ListView.builder(
+                            reverse: true,
+                            itemBuilder: (context, index) {
+                              final message = snapshot.data["data"][
+                                  (snapshot.data["data"].length ?? 0) -
+                                      1 -
+                                      index];
+                              final isSentByMe =
+                                  message["senderUserRoom"] == userName;
+                              return Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 10.h, horizontal: 16.w),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: isSentByMe
+                                      ? CrossAxisAlignment.end
+                                      : CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        left: isSentByMe ? 15.w : 0.w,
+                                        right: isSentByMe ? 0.w : 15.w,
                                       ),
-                                    ],
-                                  ),
-                                );
-                              },
-                              itemCount: snapshot.data["data"].length,
-                            );
-                          }
-                        },
-                      );
-                    });
+                                      child: Container(
+                                        constraints: BoxConstraints(
+                                          maxWidth: Get.width * 0.75,
+                                        ),
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 24.w,
+                                          vertical: 6.h,
+                                        ),
+                                        decoration: BoxDecoration(
+                                            color: isSentByMe
+                                                ? Colors.white
+                                                : Color(0xffecd2ab),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.5),
+                                                spreadRadius: 1,
+                                                blurRadius: 6,
+                                                offset: Offset(0,
+                                                    3), // changes position of shadow
+                                              ),
+                                            ],
+                                            borderRadius: isSentByMe
+                                                ? BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(13.r),
+                                                    bottomLeft:
+                                                        Radius.circular(13.r),
+                                                    bottomRight:
+                                                        Radius.circular(13.r),
+                                                  )
+                                                : BorderRadius.only(
+                                                    bottomRight:
+                                                        Radius.circular(13.r),
+                                                    topRight:
+                                                        Radius.circular(13.r),
+                                                    bottomLeft:
+                                                        Radius.circular(13.r),
+                                                  )),
+                                        child: message["audio"] == "1"
+                                            ? GestureDetector(
+                                                onTap: () {
+                                                  controller.playRecording(
+                                                      message["message"]
+                                                          .toString());
+                                                },
+                                                child: Row(
+                                                  children: [
+                                                    Icon(Icons
+                                                        .play_arrow_rounded),
+                                                    SizedBox(
+                                                      width: 10.w,
+                                                    ),
+                                                    Container(
+                                                      // width: 00,
+                                                      constraints:
+                                                          BoxConstraints(
+                                                        maxWidth:
+                                                            Get.width * 0.50,
+                                                      ),
+                                                      height: 2,
+                                                      color: Colors.black,
+                                                    ),
+                                                  ],
+                                                ),
+                                              )
+                                            : Text(
+                                                message["message"].toString(),
+                                                textAlign: !isSentByMe
+                                                    ? TextAlign.right
+                                                    : TextAlign.left,
+                                                style: TextStyle(
+                                                    color: Colors.black),
+                                              ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                            itemCount: snapshot.data["data"].length,
+                          );
+                        }
+                      },
+                    );
+                  },
+                );
               },
             ),
           ),
@@ -300,9 +301,9 @@ class PrivateMessageRoom extends StatelessWidget {
                       //   print("test");
                       //   controller.record();
                       // },
-                      // onDoubleTap: () {
-                      //   controller.stopRecorder();
-                      // },
+                      onDoubleTap: () {
+                        controller.stopRecorder();
+                      },
                       child: Icon(
                         controller.mRecorder.isRecording
                             ? Icons.mic_off

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'controller/side pages/trophy..dart';
-import 'testTwo.dart';
 import 'view/main_screans_vew/chooce_type_room.dart';
 import 'view/main_screans_vew/home_page.dart';
 import 'view/control panel/addRoot.dart';
@@ -63,7 +62,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +76,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           getPages: [
             GetPage(name: '/choosingPage', page: () => choosingPage()),
-            GetPage(name: '/loginPage', page: () => LoginPage()),
+            GetPage(name: '/loginPage', page: () => const LoginPage()),
             GetPage(name: "/chatHomePage", page: () => const HomePage()),
             GetPage(
                 name: "/choiceTypeRooms", page: () => const ChoiceTypeRooms()),
@@ -154,7 +153,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: choosingPage(),
+      child: const LoginPage(),
       // child: TestTwo(),
       // child: PrivateMessageRoom(),
       // child: const Moments(),

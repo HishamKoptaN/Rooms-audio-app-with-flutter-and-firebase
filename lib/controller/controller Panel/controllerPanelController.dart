@@ -81,11 +81,11 @@ class ControlPanelController extends GetxController {
             backgroundColor: Colors.red, colorText: Colors.white);
       }
     }
-    //   var request = await http.post(Uri.parse(controlPanelRoomInfo), body: {
-    //     "roomId":"",
-    //   'password': userName,
-    // });
-    // var res = json.decode(request.body);
-    // roomController.jumpToPage(1);
+    var request = await http.post(Uri.parse(controlPanelRoomInfo), body: {
+      "roomId": "",
+      'password': userName,
+    });
+    var res = json.decode(request.body);
+    roomController.jumpToPage(1);
   }
 }

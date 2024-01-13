@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../controller/bottomNavitionBar.dart';
+import '../../controller/main_screens_controller/bottomNavitionBar.dart';
 import '../../controller/chathomePageController.dart';
 import '../side pages/drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -17,7 +17,7 @@ class ChoiceTypeRooms extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      // drawer: const Drawer(),
+      drawer: const Drawer(),
       endDrawer: homeDrawer(),
       onEndDrawerChanged: (isOpened) {
         if (isOpened) {

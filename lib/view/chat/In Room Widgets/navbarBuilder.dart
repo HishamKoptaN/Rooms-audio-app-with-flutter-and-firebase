@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/foundation.dart' as foundation;
-
 import '../../../controller/chat/roomsPageController.dart';
 import '../../../controller/chat/voice and video/videoController.dart';
 import '../../../controller/chat/voice and video/voiceController.dart';
@@ -378,7 +377,7 @@ Widget buildMyNavBar(BuildContext context) {
 ///////////////////////////////////////////////////////////////////////
                 child: Column(
                   children: [
-                    SizedBox(
+                    Container(
                       height: 71.h,
                       child: Row(
                         children: [
@@ -408,13 +407,13 @@ Widget buildMyNavBar(BuildContext context) {
                                     return GestureDetector(
                                       onTap: () {
                                         // controller.joinCall();/////////////////////////////////////////////////////////////
-                                        // controller.join();
+                                        controller.join();
                                         // controller.toogleMic();
                                         // print("object");
                                       },
                                       onDoubleTap: () {
                                         // controller.leaveCall();///////////////////////////////////////////////////////////////////
-                                        // controller.leave();
+                                        controller.leave();
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -425,7 +424,7 @@ Widget buildMyNavBar(BuildContext context) {
                                               BorderRadius.circular(8.r),
                                         ),
                                         padding: EdgeInsets.all(4.sp),
-                                        child: Image.network(
+                                        child: Image.asset(
                                           'assets/icons/mic.png',
                                           width: 25.w,
                                         ),

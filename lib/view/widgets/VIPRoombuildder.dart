@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
+import '../../constants.dart';
 import '../../controller/chathomePageController.dart';
 import '../../controller/userData/userCredentials.dart';
 import '../../controller/userData/variables.dart';
+import '../../live_page.dart';
+
+void jumpToLivePage(BuildContext context,
+    {required String roomID, required bool isHost}) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => LivePage(
+          roomID: roomID, isHost: isHost, layoutMode: LayoutMode.defaultLayout),
+    ),
+  );
+}
 
 //  VIP && Regular
 Widget roomBuilder(
@@ -13,6 +25,7 @@ Widget roomBuilder(
     textDirection: TextDirection.rtl,
     child: GestureDetector(
       onTap: () {
+        print('click');
         if (isGuest || isRole) {
           showAlert(
             Get.context!,

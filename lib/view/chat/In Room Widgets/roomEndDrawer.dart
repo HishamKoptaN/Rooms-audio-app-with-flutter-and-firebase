@@ -9,8 +9,8 @@ import '../../../controller/userData/userCredentials.dart';
 import '../../../controller/userData/variables.dart';
 import '../../side pages/scrollText.dart';
 
-// String roomOwner = Get.arguments["owner"];
-// bool isOwner = roomOwner != userName;
+String roomOwner = Get.arguments["owner"];
+bool isOwner = roomOwner != userName;
 final scaffoldKey = GlobalKey<ScaffoldState>();
 PopupMenuItem<int> usersPopUpMenu(String name, {Function? f}) {
   return PopupMenuItem(

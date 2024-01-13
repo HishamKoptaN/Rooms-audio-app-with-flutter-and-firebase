@@ -83,7 +83,7 @@ class VoiceController extends GetxController {
 
   Future<void> setupVoiceSDKEngine() async {
     // retrieve or request microphone permission
-    await [Permission.microphone].request();
+    // await [Permission.microphone].request();
 
     // //create an instance of the Agora engine
     // agoraEngine = createAgoraRtcEngine();
@@ -109,61 +109,63 @@ class VoiceController extends GetxController {
     // );
   }
 
-  // getMemberInCall() async {
-  //   var url = Uri.parse('https://lametnachat.com/messages/getMembersInCall.php');
-  //   var response = await http.post(url, body: {
-  //     "roomId": Get.arguments["room_id"],
-  //   });
-  //   final dataBody = json.decode(response.body);
-  //   print(dataBody);
-  //   roomPageController.memberInCall = dataBody["data"];
-  //   update();
-  // }
+  getMemberInCall() async {
+    var url =
+        Uri.parse('https://lametnachat.com/messages/getMembersInCall.php');
+    var response = await http.post(url, body: {
+      "roomId": Get.arguments["room_id"],
+    });
+    final dataBody = json.decode(response.body);
+    print(dataBody);
+    roomPageController.memberInCall = dataBody["data"];
+    update();
+  }
 
-  // getCurrentTime() {
-  //   // DateTime now = DateTime.now();
-  //   currentTime = currentTime + 1;
-  //   //     "${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}:${now.second.toString().padLeft(2, '0')}";
-  //   update();
-  //   print(currentTime);
-  // }
+  getCurrentTime() {
+    // DateTime now = DateTime.now();
+    currentTime = currentTime + 1;
+    //     "${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}:${now.second.toString().padLeft(2, '0')}";
+    update();
+    print(currentTime);
+  }
 
-  // String formatSecondsToTime(int seconds) {
-  //   int hours = seconds ~/ 3600;
-  //   int minutes = (seconds % 3600) ~/ 60;
-  //   int remainingSeconds = seconds % 60;
+  String formatSecondsToTime(int seconds) {
+    int hours = seconds ~/ 3600;
+    int minutes = (seconds % 3600) ~/ 60;
+    int remainingSeconds = seconds % 60;
 
-  //   String formattedTime = '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${remainingSeconds.toString().padLeft(2, '0')}';
+    String formattedTime =
+        '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${remainingSeconds.toString().padLeft(2, '0')}';
 
-  //   return formattedTime;
-  // }
+    return formattedTime;
+  }
 
-  // void join() async {
-  //   // Set channel options including the client role and channel profile
-  //   ChannelMediaOptions options = const ChannelMediaOptions(
-  //     clientRoleType: ClientRoleType.clientRoleBroadcaster,
-  //     channelProfile: ChannelProfileType.channelProfileCommunication,
-  //   );
-  //   // agoraEngine.disableVideo();
-  //   // agoraEngine.muteLocalAudioStream(true);
-  //   var url =
-  //       Uri.parse('https://lametnachat.com/messages/addMembersInCall.php');
-  //   var response = await http.post(url, body: {
-  //     "roomId": Get.arguments["room_id"],
-  //     "name": userName,
-  //     "userType": "1",
-  //     // "joinOrLeave": "9", //left 1 joined 0
-  //   });
+  void join() async {
+    // Set channel options including the client role and channel profile
+    // ChannelMediaOptions options = const ChannelMediaOptions(
+    //   clientRoleType: ClientRoleType.clientRoleBroadcaster,
+    //   channelProfile: ChannelProfileType.channelProfileCommunication,
+    // );
+    // agoraEngine.disableVideo();
+    // agoraEngine.muteLocalAudioStream(true);
+    var url =
+        Uri.parse('https://lametnachat.com/messages/addMembersInCall.php');
+    var response = await http.post(url, body: {
+      "roomId": Get.arguments["room_id"],
+      "name": userName,
+      "userType": "1",
+      // "joinOrLeave": "9", //left 1 joined 0
+    });
 
-  //   await agoraEngine.joinChannel(
-  //     token: token,
-  //     channelId: channelName,
-  //     options: options,
-  //     uid: uid,
-  //   );
+    // await agoraEngine.joinChannel(
+    //   token: token,
+    //   channelId: channelName,
+    //   options: options,
+    //   uid: uid,
+    // );
 
-  //   Get.snackbar("message", "تم الانضمام للمكالمة");
-  // }
+    Get.snackbar("message", "تم الانضمام للمكالمة");
+  }
 
   Future<void> leave() async {
     _isJoined = false;
@@ -187,30 +189,30 @@ class VoiceController extends GetxController {
   //   await agoraEngine.leaveChannel();
   // }
 
-  // joinCall() async {
-  //   if (inCall) {
-  //   } else {
-  //     var url = Uri.parse('https://lametnachat.com/messages/addMembersInCall.php');
-  //     var response = await http.post(url, body: {
-  //       "roomId": Get.arguments["room_id"],
-  //       "name": userName,
-  //       "userType": "1",
+  joinCall() async {
+    if (inCall) {
+    } else {
+      var url =
+          Uri.parse('https://lametnachat.com/messages/addMembersInCall.php');
+      var response = await http.post(url, body: {
+        "roomId": Get.arguments["room_id"],
+        "name": userName,
+        "userType": "1",
+        "joinOrLeave": "9",
+      });
+      //   ChannelMediaOptions options = const ChannelMediaOptions(
+      //     clientRoleType: ClientRoleType.clientRoleBroadcaster,
+      //     channelProfile: ChannelProfileType.channelProfileCommunication,
+      //   );
 
-  //       // "joinOrLeave": "9", //left 1 joined 0
-  //     });
-  //     ChannelMediaOptions options = const ChannelMediaOptions(
-  //       clientRoleType: ClientRoleType.clientRoleBroadcaster,
-  //       channelProfile: ChannelProfileType.channelProfileCommunication,
-  //     );
-
-  //     await agoraEngine.joinChannel(
-  //       token: token,
-  //       channelId: channelName,
-  //       options: options,
-  //       uid: uid,
-  //     );
-  //   }
-  // }
+      //   await agoraEngine.joinChannel(
+      //     token: token,
+      //     channelId: channelName,
+      //     options: options,
+      //     uid: uid,
+      //   );
+    }
+  }
 
   leaveCall() async {
     //deleteMemberInCall

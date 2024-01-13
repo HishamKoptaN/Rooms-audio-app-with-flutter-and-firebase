@@ -132,8 +132,6 @@ class ChatHomeController extends GetxController {
     update();
     if (response.statusCode == 200) {
       var res = json.decode(response.body);
-      print(res);
-      print("---------");
       //get snackbar with right arabic right to left
 
       Get.snackbar(
@@ -170,7 +168,6 @@ class ChatHomeController extends GetxController {
 
   loginRoleAccount(
       {String? roomId, String? roomName, String? welcomeText}) async {
-    print("role");
     FocusScope.of(Get.context!).unfocus();
     Get.back();
     showDialog(

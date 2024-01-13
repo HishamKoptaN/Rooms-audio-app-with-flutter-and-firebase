@@ -11,7 +11,7 @@ import '../../../controller/chat/in room chat/PrivateMessageRoomController.dart'
 import '../../../controller/userData/userCredentials.dart';
 
 class PrivateMessageRoom extends StatelessWidget {
-  const PrivateMessageRoom({Key? key}) : super(key: key);
+  const PrivateMessageRoom({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +23,8 @@ class PrivateMessageRoom extends StatelessWidget {
             // LinearGradient
             gradient: LinearGradient(
               colors: [
-                const Color(0xFFF792F0),
-                const Color(0xFFFABD63),
+                Color(0xFFF792F0),
+                Color(0xFFFABD63),
               ],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
@@ -213,8 +213,8 @@ class PrivateMessageRoom extends StatelessWidget {
               // LinearGradient
               gradient: LinearGradient(
                 colors: [
-                  const Color(0xFFF792F0),
-                  const Color(0xFFFABD63),
+                  Color(0xFFF792F0),
+                  Color(0xFFFABD63),
                 ],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,

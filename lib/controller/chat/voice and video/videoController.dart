@@ -336,7 +336,7 @@ class VideoController extends GetxController {
   //     "roomId": Get.arguments["room_id"],
   //     "username": userName,
   //   });
-  //   // var token = jsonDecode(response.body)["token"];
+  //   var token = jsonDecode(response.body)["token"];
 
   //   ChannelMediaOptions options;
   //   // Get.snackbar("message", "join");

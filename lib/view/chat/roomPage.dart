@@ -1,22 +1,15 @@
 // ignore_for_file: missing_return, prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:http/http.dart' as http;
-import '';
 import '../../controller/chat/roomsPageController.dart';
 import '../../controller/userData/userCredentials.dart';
 import '../../controller/userData/variables.dart';
 import 'In Room Widgets/navbarBuilder.dart';
 
 class Room extends StatefulWidget {
-  const Room({Key? key}) : super(key: key);
+  const Room({super.key});
 
   @override
   State<Room> createState() => _RoomState();
