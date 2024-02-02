@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "201790637251",
+    "project_id": "rooms-3ddf2",
+    "storage_bucket": "rooms-3ddf2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201790637251:android:d5365200cd386ed25f4e76",
+        "android_client_info": {
+          "package_name": "com.example.watan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFcnpEbiRDgRI_sM3lZw67qvVUjHFD0tQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
